@@ -1,0 +1,238 @@
+{
+    "storyline1": [{
+            "prologue": [{
+                    "line0": "/Storyline/Images/Gate_placeholder.png"
+                }, {
+                    "line1": "Marc: Oh man... I hope I'm not late..."
+                }, {
+                    "line2": "Marc: It's going to be my first day in school, it'd be really embarrassing to be late as your first impression."
+                }, {
+                    "line3": "[Marc rushed to the gate.]"
+                }, {
+                    "line4": "[There a long line had formed that seemed to stretch across the entirety of the sidewalk.]"
+                }, {
+                    "line5": "Marc: Why is this line so slow?"
+                }, {
+                    "line6": "[Marc peeked to see that there was one sole female security guard checking the bags thoroughly.]"
+                }, {
+                    "line7": "Marc: *Groan*"
+                }, {
+                    "line8": "..."
+                }, {
+                    "line9": "[Marc's heart skips a beat]"
+                }, {
+                    "line10": "Marc: Who is that...?"
+                }, {
+                    "line11": "[A dazzling figure appears, leaving him starstruck.]"
+                }, {
+                    "line12": "Christina: true"
+                }, {
+                    "line13": "[From the way her hair fell down her head, to the way her midriff swayed with confidence, she seemed like polaris among the dull background.]"
+                }, {
+                    "line14": "..."
+                }, {
+                    "line15": "[As soon as she appeared, she disappeared like a wisp of smoke.]"
+                }, {
+                    "line16": "Christina: false"
+                }, {
+                    "line17": "..."
+                }, {
+                    "line18": "[Marc is jolted back to reality when he reaches the security guard. Who promptly scolds him for his haircut.]"
+                }, {
+                    "line19": "Marc: Somehow I got away with a warning... Let's just hope I don't forget to get a haircut."
+                }, {
+                    "line20": "Marc: What was I thinking about again?"
+                }, {
+                    "line21": "Marc: It doesn't matter I'll be late for my first class..."
+                }, {
+                    "line22": "[Marc shrugged a looming ache in his head and proceeded to the classroom.]"
+                }, {
+                    "line23": "/Storyline/Images/Classroom_placeholder.png"
+                }, {
+                    "line24": "[Marc entered the classroom.]"
+                }, {
+                    "line25": "Marc: Phew... Just in time."
+                }, {
+                    "line26": "[Marc scanned the classroom. Already it was as jovial as he remembered Senior High School being...]"
+                }, {
+                    "line27": "[.... by the middle of the school year.]"
+                }, {
+                    "line28": "Marc: This is so awkward... I don't know anyone here..."
+                }, {
+                    "line29": "[With nothing else to do... Marc drew his sketch book and pencil to doodle...]"
+                }, {
+                    "line30": "[Incidentally, upon drawing out his eraser he so happens to drop it...]"
+                }, {
+                    "line31": "???: Here you go."
+                }, {
+                    "line32": "Christina: true"
+                }, {
+                    "line33": "[Marc is left speechless. His body seemed to move on its own accord, graciously receiving his pencil from an angel.]"
+                }, {
+                    "line34": "[The time seemed to freeze as Marc carefully absorbed her features...]"
+                }, {
+                    "line35": "[Her hazel bore deep like the certain undersea trenches. Her flowing hair, glistening in the light like the pearl of a clam. Her symmetrical face, the object of Aphrodite's jealousy...]"
+                }, {
+                    "line36": "..."
+                }, {
+                    "line37": "[Her smile struck Marc like the meteor that wiped out the dinosaurs all those millions of years ago.]"
+                }, {
+                    "line38": "[From that point on Marc's world would not be the same...]"
+                }, {
+                    "line39": "..."
+                }, {
+                    "line40": "[Marc realized he had been staring hard and promptly jerked his face away...]"
+                }, {
+                    "line41": "Christina: false"
+                }, {
+                    "line42": "[Beautiful... Is all he could think about even as a flush rushed to his cheek.]"
+                }, {
+                    "line43": "[BAAM!]"
+                }, {
+                    "line44": "[The door opened and the professor came to into view]"
+                }, {
+                    "line45": "[Spurred by everyone else.  Marc straightened in his seat.]"
+                }, {
+                    "line46": "[The class proceeded like any other first day.]"
+                }, {
+                    "line47": "[Everything else aside, Marc solely focused on getting to know the name of the girl beside him.]"
+                }, {
+                    "line48": "[Marc couldn't stop taking furtive glances...]"
+                }, {
+                    "line49": "..."
+                }, {
+                    "line50": "[Marc meets her eyes...]"
+                }, {
+                    "line51": "[Her smile spurs Marc to jerk his face away.]"
+                }, {
+                    "line52": "[The introductions proceeded and when it came to Marc. He gave a generic introduction.]"
+                }, {
+                    "line53": "[Marc's eye's dilated, his cheeks flushed red as he learned of her name.]"
+                }, {
+                    "line54": "Marc: Christina..."
+                }, {
+                    "line55": "[Marc muttered... his voice barely whispers.]"
+                }, {
+                    "line56": "..."
+                }, {
+                    "line57": "/Storyline/Images/Hallway_placeholder.png"
+                }, {
+                    "line58": "[Before long, morning classes ended...]"
+                }, {
+                    "line59": "[Christina disappears among the throng that bottlenecked the exit...]"
+                }, {
+                    "line60": "Marc: I want to see her again..."
+                }]
+        }],
+    "sample storyline": [{
+            "sample episode1": [{
+                    "scene0": [{
+                            "line0": [{
+                                    "dialogue": "Background changes"
+                                }, {
+                                    "backgroundFilePath": "/Storyline/Images/Gate_placeholder.png"
+                                }]
+                        }, {
+                            "line1": [{
+                                    "dialogue": "Christina appears"
+                                }, {
+                                    "character": "Christina: true"
+                                }]
+                        }, {
+                            "line2": [{
+                                    "dialogue": "Christina disappears"
+                                }, {
+                                    "character": "Christina: false"
+                                }]
+                        }, {
+                            "line3": [{
+                                    "dialogue": "What choice will you take?"
+                                }, {
+                                    "multiple choice": "true"
+                                }, {
+                                    "option1": "pick me!"
+                                }, {
+                                    "option2": "pick me two!"
+                                }, {
+                                    "option1_sceneIndex": "1"
+                                }, {
+                                    "option1_scene": "scene1"
+                                }, {
+                                    "option2_sceneIndex": "2"
+                                }, {
+                                    "option2_scene": "scene2"
+                                }, {
+                                    "choice1_effect1": [{
+                                            "love": "-2"
+                                        }]
+                                }, {
+                                    "choice1_effect2": [{
+                                            "love": "-2"
+                                        }]
+                                }, {
+                                    "choice2_effect1": [{
+                                            "love": "-2"
+                                        }]
+                                }, {
+                                    "choice2_effect2": [{
+                                            "love": "-2"
+                                        }]
+                                }]
+                        }]
+                }, {
+                    "scene1": [{
+                            "line0": [{
+                                    "dialogue": "this is a string of text"
+                                }, {
+                                    "backgroundFilePath": "/Storyline/Images/Hallway_placeholder.png"
+                                }]
+                        }, {
+                            "line1": [{
+                                    "dialogue": "this is another string of text."
+                                }, {
+                                    "nextSceneIndex": "2"
+                                }, {
+                                    "nextScene": "scene2"
+                                }]
+                        }]
+                }, {
+                    "scene2": [{
+                            "line0": [{
+                                    "dialogue": "It worked right! Wohoo hurray!"
+                                }, {
+                                    "backgroundFilePath": "/Storyline/Images/Classroom_placeholder.png"
+                                }]
+                        }, {
+                            "line1": [{
+                                    "dialogue": "This is dialogue without any tags!"
+                                }]
+                        }, {
+                            "line2": [{
+                                    "dialogue": "This is one too!"
+                                }]
+                        }, {
+                            "line3": [{
+                                    "dialogue": "This is one moves to the next episode!"
+                                }, {
+                                    "nextEpisodeIndex": "1"
+                                }, {
+                                    "nextEpisode": "sample episode2"
+                                }]
+                        }]
+                }]
+        }, {
+            "sample episode2": [{
+                    "scene0": [{
+                            "line0": [{
+                                    "dialogue": "Hey! it works, congratulations!"
+                                }, {
+                                    "backgroundFilePath": "/Storyline/Images/Gate_placeholder.png"
+                                }]
+                        }, {
+                            "line1": [{
+                                    "dialogue": "Skibidi"
+                                }]
+                        }]
+                }]
+        }]
+}

@@ -4,6 +4,11 @@
  */
 package pkgfinal.project.pkg2nd.sem.visual.novel;
 
+import Storyline.*;
+import Storyline.Load;
+import Storyline.SettingsHandler;
+import Storyline.Settings_Menu;
+import Storyline.Storyline;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
@@ -14,12 +19,54 @@ import javax.swing.*;
  */
 public class Title_Screen extends javax.swing.JFrame {
 
+    //Get's the user's device when running and get it's measure ments to be manipulated and use
+    //on what size to calculate to make the window/JFrame fit the user's screen.
+    private Image female_lead;
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    int screenWidth = screenSize.width;
+    int screenHeight = screenSize.height;
+    int Title_xlocation = (int)(0.55989583 * screenWidth);
+    int Title_ylocation = (int)(0.11574 * screenHeight);
     /**
      * Creates new form Title_Screen
      */
     public Title_Screen() {
         initComponents();
-    }
+        //Dynamic file directory.
+        female_lead = new ImageIcon(getClass().getResource("/pkgfinal/project/pkg2nd/sem/visual/novel/Sprite & Assets/Female_Scaling_8-removebg-preview.png")).getImage();
+        
+
+    Left_Sprite.addComponentListener(new ComponentAdapter() {
+        @Override
+        public void componentResized(ComponentEvent e) {
+            resizeLeftSprite(Left_Sprite.getWidth(), Left_Sprite.getHeight());
+        }
+    });
+
+    // Initial resize
+    resizeLeftSprite(Left_Sprite.getWidth(), Left_Sprite.getHeight());
+}
+        private void resizeLeftSprite(int width, int height) {
+            if (female_lead != null && width > 0 && height > 0) {
+                Image scaledImage = female_lead.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                Left_Sprite.setIcon(new ImageIcon(scaledImage)); 
+            }
+        }
+
+        /*
+    Left_Sprite.addComponentListener(new ComponentAdapter() {
+        @Override
+        public void componentResized(ComponentEvent e) {
+            int width = Left_Sprite.getWidth();
+            int height = Left_Sprite.getHeight();
+
+            if (width > 0 && height > 0) {
+                Image scaledImage = originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                Left_Sprite.setIcon(new ImageIcon(scaledImage));
+            }
+        }
+    });
+        */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,16 +77,14 @@ public class Title_Screen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new BackgroundPanel("src\\pkgfinal\\project\\pkg2nd\\sem\\visual\\novel\\Backgrounds\\Pink Background #1.jpg");
-        jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        Background_Panel = new BackgroundPanel("src\\pkgfinal\\project\\pkg2nd\\sem\\visual\\novel\\Backgrounds\\Pink Background #1.jpg");
+        Title_Label = new javax.swing.JLabel();
+        Left_Sprite = new javax.swing.JLabel();
+        New_Game_Button = new javax.swing.JButton();
+        Load_Button = new javax.swing.JButton();
+        Settings_Button = new javax.swing.JButton();
+        Credits_Button = new javax.swing.JButton();
+        Quit_Game_Button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -47,92 +92,90 @@ public class Title_Screen extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(1920, 1080));
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Background_Panel.setBackground(new java.awt.Color(102, 255, 255));
+        Background_Panel.setPreferredSize(new Dimension(screenWidth, screenHeight));
+        setSize(screenWidth, screenHeight);
+        Background_Panel.setLayout(null);
+        //Background_Panel.setPreferredSize(screenWidth,screenHeight);
 
-        jPanel2.setOpaque(false);
+        Title_Label.setForeground(new java.awt.Color(255, 0, 0));
+        Title_Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgfinal/project/pkg2nd/sem/visual/novel/Sprite & Assets/VN Title downscaled 5.png"))); // NOI18N
+        Background_Panel.add(Title_Label);
+        Title_Label.setBounds(860, 100, 380, 340);
+        Title_Label.setBounds(Title_xlocation, Title_ylocation, 380, 340);
 
-        jButton2.setText("New Game");
-        jButton2.setPreferredSize(new java.awt.Dimension(72, 23));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Left_Sprite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgfinal/project/pkg2nd/sem/visual/novel/Sprite & Assets/Female_Scaling_8-removebg-preview.png"))); // NOI18N
+        Background_Panel.add(Left_Sprite);
+        Left_Sprite.setBounds(160, 306, 447, 559);
+
+        New_Game_Button.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
+        New_Game_Button.setText("New Game");
+        New_Game_Button.setPreferredSize(new java.awt.Dimension(72, 23));
+        New_Game_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                New_Game_ButtonActionPerformed(evt);
             }
         });
+        Background_Panel.add(New_Game_Button);
+        New_Game_Button.setBounds(930, 500, 230, 50);
+        New_Game_Button.setBounds(Title_xlocation+70, Title_ylocation+400, 230, 50);
 
-        jButton3.setText("Load Game");
-        jButton3.setPreferredSize(new java.awt.Dimension(72, 23));
-
-        jButton4.setText("Settings");
-
-        jButton5.setLabel("Credits");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        Load_Button.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
+        Load_Button.setText("Load Game");
+        Load_Button.setPreferredSize(new java.awt.Dimension(72, 23));
+        Load_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                Load_ButtonActionPerformed(evt);
             }
         });
+        Background_Panel.add(Load_Button);
+        Load_Button.setBounds(930, 560, 230, 50);
+        Load_Button.setBounds(Title_xlocation+70, Title_ylocation+460, 230, 50);
 
-        jButton1.setText("Quit Game");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Settings_Button.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
+        Settings_Button.setText("Settings");
+        Settings_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Settings_ButtonActionPerformed(evt);
             }
         });
+        Background_Panel.add(Settings_Button);
+        Settings_Button.setBounds(930, 620, 230, 50);
+        Settings_Button.setBounds(Title_xlocation+70, Title_ylocation+520, 230, 50);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(66, 66, 66))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
-        );
+        Credits_Button.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
+        Credits_Button.setLabel("Credits");
+        Credits_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Credits_ButtonActionPerformed(evt);
+            }
+        });
+        Background_Panel.add(Credits_Button);
+        Credits_Button.setBounds(930, 680, 230, 50);
+        Credits_Button.setBounds(Title_xlocation+70, Title_ylocation+580, 230, 50);
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(588, 400, 360, 320));
-
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgfinal/project/pkg2nd/sem/visual/novel/Sprite & Assets/VN Title downscaled 5.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 380, 340));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\Java Projects\\UIC\\1st year\\2nd sem\\My code\\Final Project 2nd Sem Visual Novel\\src\\pkgfinal\\project\\pkg2nd\\sem\\visual\\novel\\Sprite & Assets\\Resizing_Image_4_for_paint-removebg-preview.png")); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 292, -1, -1));
-        jLabel3.getAccessibleContext().setAccessibleDescription("");
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgfinal/project/pkg2nd/sem/visual/novel/Sprite & Assets/Female_Scaling_8-removebg-preview.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 306, -1, -1));
+        Quit_Game_Button.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
+        Quit_Game_Button.setText("Quit Game");
+        Quit_Game_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Quit_Game_ButtonActionPerformed(evt);
+            }
+        });
+        Background_Panel.add(Quit_Game_Button);
+        Quit_Game_Button.setBounds(930, 740, 230, 50);
+        Quit_Game_Button.setBounds(Title_xlocation+70, Title_ylocation+640, 230, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1536, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Background_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 1536, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 352, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 864, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Background_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 864, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -145,7 +188,7 @@ public class Title_Screen extends javax.swing.JFrame {
         // Load the image
         backgroundImage = new ImageIcon(imagePath).getImage();
         // Optional: scale the panel size to fit image
-        this.setPreferredSize(new Dimension(1536, 864));
+        this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setLayout(null); // or use your desired layout
     }
 
@@ -157,20 +200,37 @@ public class Title_Screen extends javax.swing.JFrame {
     }
 }
     
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void Credits_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Credits_ButtonActionPerformed
+        Credits_Screen credits = new Credits_Screen();
+        credits.setVisible(true);
+    }//GEN-LAST:event_Credits_ButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Save_Frame save = new Save_Frame();
-        save.setVisible(true);
+    private void New_Game_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_New_Game_ButtonActionPerformed
+        Storyline story = new Storyline();
+        story.setVisible(true);
+        this.dispose(); // closes the Title Screen
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_New_Game_ButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Quit_Game_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Quit_Game_ButtonActionPerformed
         System.exit(0);
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_Quit_Game_ButtonActionPerformed
+
+    private void Settings_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Settings_ButtonActionPerformed
+        Settings_Menu settings = new Settings_Menu(this);
+        settings.setModal(true);
+        settings.setVisible(true);
+        int message_speed = SettingsHandler.getMessageSpeed();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Settings_ButtonActionPerformed
+
+    private void Load_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Load_ButtonActionPerformed
+        new Load().setVisible(true);
+        this.dispose();
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_Load_ButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,15 +270,13 @@ public class Title_Screen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel Background_Panel;
+    private javax.swing.JButton Credits_Button;
+    private javax.swing.JLabel Left_Sprite;
+    private javax.swing.JButton Load_Button;
+    private javax.swing.JButton New_Game_Button;
+    private javax.swing.JButton Quit_Game_Button;
+    private javax.swing.JButton Settings_Button;
+    private javax.swing.JLabel Title_Label;
     // End of variables declaration//GEN-END:variables
 }
